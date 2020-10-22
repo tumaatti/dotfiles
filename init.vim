@@ -1,5 +1,6 @@
 syntax on
 
+set showmatch
 set number
 set nohlsearch
 set noerrorbells
@@ -40,8 +41,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'ayu-theme/ayu-vim'
+Plug 'fneu/breezy'
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'nvie/vim-flake8'
 
 call plug#end()
 
@@ -96,7 +99,7 @@ nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 
 nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>bs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
-nnoremap <leader>b :ls<CR>:b<space>
+nnoremap <leader>bb :ls<CR>:b<space>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
@@ -117,6 +120,9 @@ nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kk
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap X "_d
+nnoremap <Leader>tt :terminal<CR>
+nnoremap <Leader>tl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
+tnoremap <Esc> <C-\><C-n>
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
@@ -130,6 +136,8 @@ com! W w
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+autocmd BufWritePost *.py call Flake8()
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
