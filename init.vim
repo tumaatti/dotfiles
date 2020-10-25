@@ -1,6 +1,7 @@
 syntax on
 
 set showmatch
+set hidden
 set number
 set nohlsearch
 set noerrorbells
@@ -30,16 +31,16 @@ Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 
-Plug 'tweekmonster/gofmt.vim'
-Plug 'tpope/vim-fugitive'
+" Plug 'tweekmonster/gofmt.vim'
 Plug 'vim-utils/vim-man'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'tpope/vim-dispatch'
+
 Plug 'ayu-theme/ayu-vim'
 Plug 'fneu/breezy'
 Plug 'liuchengxu/vim-which-key'
@@ -153,6 +154,7 @@ com! W w
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_theme = 'ayu'
 
 autocmd BufWritePost *.py call Flake8()
 
