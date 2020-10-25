@@ -131,6 +131,8 @@ nnoremap <leader>4 :b! 4<CR>
 nnoremap <leader>5 :b! 5<CR>
 nnoremap <leader>6 :b! 6<CR>
 nnoremap <leader>7 :b! 7<CR>
+nnoremap <leader>8 :b! 8<CR>
+nnoremap <leader>9 :b! 9<CR>
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
