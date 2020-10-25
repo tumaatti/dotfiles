@@ -134,6 +134,13 @@ nnoremap <leader>7 :b! 7<CR>
 nnoremap <leader>8 :b! 8<CR>
 nnoremap <leader>9 :b! 9<CR>
 
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
 
