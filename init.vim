@@ -100,9 +100,9 @@ nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>bs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
 nnoremap <leader>bb :ls<CR>:b<space>
-nnoremap <leader>bd :bd<CR>
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bd :bd!<CR>
+nnoremap <leader>bn :bn!<CR>
+nnoremap <leader>bp :bp!<CR>
 nnoremap <leader>sl :vsplit<CR>
 nnoremap <leader>sj :hsplit<CR>
 nnoremap <leader>h :wincmd h<CR>
@@ -123,6 +123,14 @@ vnoremap X "_d
 nnoremap <Leader>tt :terminal<CR>
 nnoremap <Leader>tl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
 tnoremap <Esc> <C-\><C-n>
+
+nnoremap <leader>1 :b! 1<CR>
+nnoremap <leader>2 :b! 2<CR>
+nnoremap <leader>3 :b! 3<CR>
+nnoremap <leader>4 :b! 4<CR>
+nnoremap <leader>5 :b! 5<CR>
+nnoremap <leader>6 :b! 6<CR>
+nnoremap <leader>7 :b! 7<CR>
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
