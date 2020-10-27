@@ -151,6 +151,7 @@ lua require'nvim_lsp'.jedi_language_server.setup{ on_attach=require'completion'.
 " lua require'nvim_lsp'.sumneko_lua.setup{ on_attach=require'completion'.on_attach }
 
 com! W w
+com! Wq wq
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
