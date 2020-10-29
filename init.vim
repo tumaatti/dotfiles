@@ -2,14 +2,12 @@ syntax on
 
 set showmatch
 set hidden
-set number
 set nohlsearch
 set noerrorbells
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smartindent
-set nu
 set nowrap
 set smartcase
 set noswapfile
@@ -34,7 +32,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 
-" Plug 'tweekmonster/gofmt.vim'
+"Plug 'tweekmonster/gofmt.vim'
 Plug 'vim-utils/vim-man'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
