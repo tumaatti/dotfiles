@@ -31,6 +31,7 @@ Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
+Plug 'norcalli/nvim-colorizer.lua'
 
 "Plug 'tweekmonster/gofmt.vim'
 Plug 'vim-utils/vim-man'
@@ -167,3 +168,5 @@ augroup TUOMO
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+
+lua require'colorizer'.setup()
