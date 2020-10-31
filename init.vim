@@ -148,6 +148,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
 lua require'nvim_lsp'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
 " lua require'nvim_lsp'.sumneko_lua.setup{ on_attach=require'completion'.on_attach }
+lua require'nvim_lsp'.gopls.setup{ on_attach=require'completion'.on_attach }
 
 com! W w
 com! Wq wq
