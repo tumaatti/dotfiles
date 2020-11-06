@@ -1,5 +1,6 @@
 syntax on
 
+set mouse=a
 set showmatch
 set hidden
 set nohlsearch
@@ -9,7 +10,7 @@ set softtabstop=4
 set shiftwidth=4
 set smartindent
 set nowrap
-set smartcase
+set ignorecase
 set noswapfile
 set nobackup
 set incsearch
