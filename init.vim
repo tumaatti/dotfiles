@@ -10,7 +10,7 @@ set softtabstop=4
 set shiftwidth=4
 set smartindent
 set nowrap
-set ignorecase
+set ignorecase smartcase
 set noswapfile
 set nobackup
 set incsearch
