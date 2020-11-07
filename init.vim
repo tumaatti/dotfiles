@@ -56,6 +56,9 @@ endif
 
 let ayucolor="mirage"
 colorscheme ayu
+" set transparent background
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
 
 if executable('rg')
     let g:rg_derive_root='true'
