@@ -152,6 +152,9 @@ inoremap {<CR> {<CR>}<ESC>O
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
 lua require'nvim_lsp'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
