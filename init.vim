@@ -24,6 +24,7 @@ set updatetime=50
 call plug#begin(stdpath('data') . '/plugged')
 
 " neovim lsp plugins
+Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'tjdevries/nlua.nvim'
@@ -46,8 +47,11 @@ Plug 'fneu/breezy'
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'nvie/vim-flake8'
+Plug 'tjdevries/overlength.vim'
 
 call plug#end()
+
+let overlength#default_overlength = 79
 
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
