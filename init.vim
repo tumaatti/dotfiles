@@ -111,8 +111,8 @@ nnoremap <leader>bb :ls<CR>:b<space>
 nnoremap <leader>bd :bd!<CR>
 nnoremap <leader>bn :bn!<CR>
 nnoremap <leader>bp :bp!<CR>
-nnoremap <leader>sl :vsplit<CR>
-nnoremap <leader>sj :hsplit<CR>
+nnoremap <leader>sl :vsplit<CR>:wincmd l<CR>
+nnoremap <leader>sj :split<CR>:wincmd j<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
