@@ -21,6 +21,12 @@ set expandtab
 
 set updatetime=50
 
+" show nbsp as +
+set list
+set listchars=nbsp:+
+
+set inccommand=split
+
 call plug#begin(stdpath('data') . '/plugged')
 
 " neovim lsp plugins
