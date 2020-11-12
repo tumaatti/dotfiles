@@ -134,7 +134,7 @@ nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kk
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap X "_d
-nnoremap <Leader>tt :terminal<CR>
+nnoremap <Leader>tn :terminal <CR>:file terminal<CR>
 nnoremap <Leader>tl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
 tnoremap <Esc> <C-\><C-n>
 
@@ -147,6 +147,8 @@ nnoremap <leader>6 :b! 6<CR>
 nnoremap <leader>7 :b! 7<CR>
 nnoremap <leader>8 :b! 8<CR>
 nnoremap <leader>9 :b! 9<CR>
+" open terminal
+nnoremap <leader>tt :b! terminal<CR>
 
 inoremap " ""<left>
 inoremap ' ''<left>
