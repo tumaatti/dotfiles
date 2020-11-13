@@ -85,24 +85,6 @@ let g:netrw_localrmdir='rm -r'
 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
-let g:fzf_branch_actions = {
-      \ 'rebase': {
-      \   'prompt': 'Rebase> ',
-      \   'execute': 'echo system("{git} rebase {branch}")',
-      \   'multiple': v:false,
-      \   'keymap': 'ctrl-r',
-      \   'required': ['branch'],
-      \   'confirm': v:false,
-      \ },
-      \ 'track': {
-      \   'prompt': 'Track> ',
-      \   'execute': 'echo system("{git} checkout --track {branch}")',
-      \   'multiple': v:false,
-      \   'keymap': 'ctrl-t',
-      \   'required': ['branch'],
-      \   'confirm': v:false,
-      \ },
-      \}
 
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
@@ -114,7 +96,7 @@ nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 
 nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>bs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
-nnoremap <leader>bb :ls<CR>:b<space>
+nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>bd :bd!<CR>
 nnoremap <leader>bn :bn!<CR>
 nnoremap <leader>bp :bp!<CR>
@@ -148,8 +130,8 @@ nnoremap <leader>6 :b! 6<CR>
 nnoremap <leader>7 :b! 7<CR>
 nnoremap <leader>8 :b! 8<CR>
 nnoremap <leader>9 :b! 9<CR>
-" open terminal
 nnoremap <leader>tt :b! terminal<CR>
+
 
 inoremap " ""<left>
 inoremap ' ''<left>
