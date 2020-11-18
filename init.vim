@@ -1,5 +1,6 @@
 syntax on
 
+set encoding=utf-8
 set mouse=a
 set showmatch
 set hidden
@@ -54,7 +55,12 @@ Plug 'fneu/breezy'
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'nvie/vim-flake8'
-Plug 'tjdevries/overlength.vim'
+
+" telescope requirements...
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+
 
 call plug#end()
 
@@ -79,6 +85,8 @@ endif
 let loaded_matchparen = 1
 let mapleader = " "
 
+
+lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}})
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
@@ -109,7 +117,10 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 " nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <Leader>pf :Files<CR>
+nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
@@ -132,14 +143,6 @@ nnoremap <leader>7 :b! 7<CR>
 nnoremap <leader>8 :b! 8<CR>
 nnoremap <leader>9 :b! 9<CR>
 nnoremap <leader>tt :b! terminal<CR>
-
-
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
