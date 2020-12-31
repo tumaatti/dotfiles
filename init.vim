@@ -37,8 +37,10 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'ryanoasis/vim-devicons'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -52,6 +54,7 @@ Plug 'stsewd/fzf-checkout.vim'
 
 Plug 'ayu-theme/ayu-vim'
 Plug 'fneu/breezy'
+Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'nvie/vim-flake8'
@@ -148,17 +151,17 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
-lua require'nvim_lsp'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
 " lua require'nvim_lsp'.sumneko_lua.setup{ on_attach=require'completion'.on_attach }
-lua require'nvim_lsp'.gopls.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 
 com! W w
 com! Wq wq
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme = 'ayu'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline_theme = 'ayu'
 
 autocmd BufWritePost *.py call Flake8()
 
@@ -185,3 +188,28 @@ augroup TUOMO
 augroup END
 
 lua require'colorizer'.setup()
+
+lua <<EOF
+    local lualine = require('lualine')
+    lualine.theme = 'gruvbox'
+    lualine.separator = '|'
+    lualine.sections = {
+      lualine_a = { 'mode' },
+      lualine_b = { 'branch' },
+      lualine_c = { 'filename' },
+      lualine_x = { 'encoding', 'fileformat', 'filetype' },
+      lualine_y = { 'progress' },
+      lualine_z = { 'location'  },
+      lualine_diagnostics = {  }
+    }
+    lualine.inactiveSections = {
+      lualine_a = {  },
+      lualine_b = {  },
+      lualine_c = { 'filename' },
+      lualine_x = { 'location' },
+      lualine_y = {  },
+      lualine_z = {   }
+    }
+    lualine.extensions = { 'fzf' }
+    lualine.status()
+EOF
