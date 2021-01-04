@@ -38,7 +38,6 @@ Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
-Plug 'ryanoasis/vim-devicons'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
