@@ -43,7 +43,6 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'nvim-treesitter/nvim-treesitter'
 
 "Plug 'tweekmonster/gofmt.vim'
 Plug 'vim-utils/vim-man'
@@ -164,17 +163,6 @@ com! Wq wq
 " let g:airline_theme = 'ayu'
 
 autocmd BufWritePost *.py call Flake8()
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
-  },
-}
-EOF
-
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
