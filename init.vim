@@ -53,6 +53,9 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'fneu/breezy'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
+
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'nvie/vim-flake8'
@@ -71,7 +74,7 @@ if exists('+termguicolors')
 endif
 
 let ayucolor="mirage"
-colorscheme ayu
+colorscheme nord
 " set transparent background
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -162,7 +165,7 @@ lua require'colorizer'.setup()
 
 lua <<EOF
     local lualine = require('lualine')
-    lualine.theme = 'gruvbox'
+    lualine.theme = 'nord'
     lualine.separator = '|'
     lualine.sections = {
       lualine_a = { 'mode' },
