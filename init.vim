@@ -20,12 +20,9 @@ set noshowmode
 set completeopt=menuone,noinsert,noselect
 set expandtab
 set textwidth=100
-
+set list
 set updatetime=50
 
-" show nbsp as +
-set list
-set listchars=nbsp:+
 
 set inccommand=split
 
@@ -44,7 +41,7 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
 
-"Plug 'tweekmonster/gofmt.vim'
+Plug 'tweekmonster/gofmt.vim'
 Plug 'vim-utils/vim-man'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
