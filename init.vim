@@ -87,6 +87,7 @@ endif
 let loaded_matchparen = 1
 let mapleader = " "
 
+let g:maximizer_set_default_mapping = 0
 
 lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}})
 let g:netrw_browse_split = 2
