@@ -19,6 +19,7 @@ set termguicolors
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 set expandtab
+set textwidth=100
 
 set updatetime=50
 
@@ -150,6 +151,7 @@ com! W w
 com! Wq wq
 
 autocmd BufWritePost *.py call Flake8()
+autocmd BufNewFile,BufRead *.py set textwidth=80
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
