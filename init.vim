@@ -22,8 +22,6 @@ set expandtab
 set textwidth=100
 set list
 set updatetime=50
-
-
 set inccommand=split
 
 call plug#begin(stdpath('data') . '/plugged')
