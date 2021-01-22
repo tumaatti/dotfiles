@@ -20,6 +20,7 @@ set noshowmode
 set completeopt=menuone,noinsert,noselect
 set expandtab
 set textwidth=100
+set scrolloff=8
 set list
 set updatetime=50
 set inccommand=split
