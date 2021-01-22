@@ -130,6 +130,7 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap X "_d
 nnoremap <Leader>tn :terminal <CR>:file terminal<CR>
 nnoremap <Leader>tl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
+tnoremap <Esc> <C-\><C-n>
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
