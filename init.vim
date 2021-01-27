@@ -94,6 +94,7 @@ let g:netrw_localrmdir='rm -r'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
 
+" lsp
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
@@ -103,34 +104,35 @@ nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 
 nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>bs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
+nnoremap <leader>gs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
+" buffers
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>bd :bd!<CR>
 nnoremap <leader>bn :bn!<CR>
 nnoremap <leader>bp :bp!<CR>
+" split window
 nnoremap <leader>sl :vsplit<CR>:wincmd l<CR>
 nnoremap <leader>sj :split<CR>:wincmd j<CR>
+nnoremap <Leader>sf :MaximizerToggle!<CR>
+nnoremap <Leader>stn :terminal <CR>:file terminal<CR>
+nnoremap <Leader>stl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
+" window movements
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-" nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <F3> :NERDTreeToggle<CR>
+" telescope
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
+
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
-nnoremap <Leader>rp :resize 100<CR>
-nnoremap <Leader>rf :MaximizerToggle!<CR>
+
 nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-vnoremap X "_d
-nnoremap <Leader>tn :terminal <CR>:file terminal<CR>
-nnoremap <Leader>tl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
 tnoremap <Esc> <C-\><C-n>
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
