@@ -54,6 +54,8 @@ Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'b4skyx/serenade'
+Plug 'jacobPenney/vim-dissonance'
+Plug 'vim-scripts/Wombat'
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
