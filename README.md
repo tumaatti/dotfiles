@@ -1,3 +1,3 @@
 # dotfiles
 
-curl https://raw.githubusercontent.com/tumaatti/dotfiles/main/init.vim > ~/.config/nvim/init.vim
+`ln -s <pathHere>/init.vim $HOME/.config/nvim/init.vim`
