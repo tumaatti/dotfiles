@@ -56,6 +56,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'b4skyx/serenade'
 Plug 'jacobPenney/vim-dissonance'
 Plug 'vim-scripts/Wombat'
+Plug 'tiagovla/tokyodark.nvim'
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -75,7 +76,8 @@ if exists('+termguicolors')
 endif
 
 let ayucolor="mirage"
-colorscheme nord
+let g:tokyodark_transparent_background = 1
+colorscheme tokyodark
 " set transparent background
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
