@@ -32,6 +32,7 @@ Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'tjdevries/nlua.nvim'
+Plug 'ThePrimeagen/harpoon'
 Plug 'tjdevries/lsp_extensions.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
@@ -40,6 +41,7 @@ Plug 'jose-elias-alvarez/buftabline.nvim'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 Plug 'tweekmonster/gofmt.vim'
 Plug 'vim-utils/vim-man'
@@ -134,6 +136,19 @@ nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
 
+nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+
+nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+
+nnoremap <C-j> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <C-k> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <C-l> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <C-ö> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <leader>tj :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <leader>tk :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <leader>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
+nnoremap <leader>ce :lua require("harpoon.term").sendCommand(1, 2)<CR>
+
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
@@ -142,6 +157,8 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 tnoremap <Esc> <C-\><C-n>
+
+nnoremap <leader>m :MarkdownPreview<CR>
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
