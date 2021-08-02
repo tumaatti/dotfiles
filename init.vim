@@ -40,6 +40,7 @@ Plug 'jose-elias-alvarez/buftabline.nvim'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'tweekmonster/gofmt.vim'
 Plug 'vim-utils/vim-man'
@@ -123,10 +124,10 @@ nnoremap <Leader>sf :MaximizerToggle!<CR>
 nnoremap <Leader>stn :terminal <CR>:file terminal<CR>
 nnoremap <Leader>stl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
 " window movements
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
+nnoremap <c-h> :wincmd h<CR>
+nnoremap <c-j> :wincmd j<CR>
+nnoremap <c-k> :wincmd k<CR>
+nnoremap <c-l> :wincmd l<CR>
 nnoremap <leader>f :NERDTreeToggle<CR>
 " telescope
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
