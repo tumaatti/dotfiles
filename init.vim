@@ -93,7 +93,7 @@ let mapleader = " "
 
 let g:maximizer_set_default_mapping = 0
 
-lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}})
+lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}, file_ignore_patterns = { "venv" }})
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
