@@ -27,6 +27,7 @@ set inccommand=split
 
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " neovim lsp plugins
 Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
@@ -70,16 +71,21 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 Plug 'szw/vim-maximizer'
 
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'pacokwon/onedarkhc.vim'
+
 call plug#end()
 
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
+" if exists('+termguicolors')
+"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" endif
 
-let ayucolor="mirage"
+let ayucolor="dark"
 let g:tokyodark_transparent_background = 1
-colorscheme tokyodark
+let g:gruvbox_contrast_dark = "soft"
+colorscheme onedark
 " set transparent background
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -93,6 +99,7 @@ let mapleader = " "
 
 let g:maximizer_set_default_mapping = 0
 
+lua require'lspconfig'.prismals.setup{}
 lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}, file_ignore_patterns = { "venv" }})
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
@@ -129,7 +136,7 @@ nnoremap <c-h> :wincmd h<CR>
 nnoremap <c-j> :wincmd j<CR>
 nnoremap <c-k> :wincmd k<CR>
 nnoremap <c-l> :wincmd l<CR>
-nnoremap <leader>f :NERDTreeToggle<CR>
+nnoremap <leader>f :Telescope file_browser<CR>
 " telescope
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
@@ -160,6 +167,10 @@ tnoremap <Esc> <C-\><C-n>
 
 nnoremap <leader>m :MarkdownPreview<CR>
 
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
 
@@ -169,6 +180,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.tailwindcss.setup{}
 " lua require'nvim_lsp'.sumneko_lua.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 
