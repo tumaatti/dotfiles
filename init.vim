@@ -27,14 +27,17 @@ set inccommand=split
 
 call plug#begin(stdpath('data') . '/plugged')
 
+" :CocInstall coc-clangd coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-python coc-tailwindcss
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " neovim lsp plugins
 Plug 'mhinz/vim-startify'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/nlua.nvim'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'tjdevries/nlua.nvim'
 Plug 'ThePrimeagen/harpoon'
-Plug 'tjdevries/lsp_extensions.nvim'
+" Plug 'tjdevries/lsp_extensions.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'jose-elias-alvarez/buftabline.nvim'
@@ -99,7 +102,7 @@ let mapleader = " "
 
 let g:maximizer_set_default_mapping = 0
 
-lua require'lspconfig'.prismals.setup{}
+" lua require'lspconfig'.prismals.setup{}
 lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}, file_ignore_patterns = { "venv" }})
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
@@ -110,13 +113,19 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
 
 " lsp
-nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
-nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
+" nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+" nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
+" nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
+" nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
+" nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
+" nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
+
+" coc
+nmap <silent> <Leader>vd <Plug>(coc-definition)
+nmap <silent> <Leader>vt <Plug>(coc-type-definition)
+nmap <silent> <Leader>vi <Plug>(coc-implementation)
+nmap <silent> <Leader>vr <Plug>(coc-references)
 
 nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>gs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
@@ -178,11 +187,11 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
-lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
-lua require'lspconfig'.tailwindcss.setup{}
-" lua require'nvim_lsp'.sumneko_lua.setup{ on_attach=require'completion'.on_attach }
-lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
+" lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
+" lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
+" lua require'lspconfig'.tailwindcss.setup{}
+" " lua require'nvim_lsp'.sumneko_lua.setup{ on_attach=require'completion'.on_attach }
+" lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 
 com! W w
 com! Wq wq
