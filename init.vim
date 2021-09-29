@@ -179,6 +179,7 @@ nnoremap <leader>m :MarkdownPreview<CR>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
+nnoremap * *zz
 
 nnoremap <silent> <leader> :WhichKey '<space>'<CR>
 set timeoutlen=500
