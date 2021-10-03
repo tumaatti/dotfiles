@@ -25,6 +25,8 @@ set list
 set updatetime=50
 set inccommand=split
 
+set signcolumn=yes
+
 call plug#begin(stdpath('data') . '/plugged')
 
 " :CocInstall coc-clangd coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-python coc-tailwindcss
@@ -40,7 +42,7 @@ Plug 'ThePrimeagen/harpoon'
 " Plug 'tjdevries/lsp_extensions.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
-Plug 'jose-elias-alvarez/buftabline.nvim'
+" Plug 'jose-elias-alvarez/buftabline.nvim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
@@ -243,4 +245,55 @@ require'lualine'.setup {
 }
 EOF
 
-lua require("buftabline").setup {}
+" lua require("buftabline").setup {}
+
+" coc-stuff
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nnoremap <leader>vh :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap <leader>vrn <Plug>(coc-rename)
+
+xmap <leader>vf  <Plug>(coc-format-selected)
+nmap <leader>vf  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+xmap <leader>va  <Plug>(coc-codeaction-selected)
+nmap <leader>va  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>vac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>vqf  <Plug>(coc-fix-current)
