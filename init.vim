@@ -22,7 +22,7 @@ set expandtab
 set textwidth=100
 set scrolloff=8
 set list
-set updatetime=50
+set updatetime=500
 set inccommand=split
 
 set signcolumn=yes
@@ -100,7 +100,7 @@ if executable('rg')
 endif
 
 let loaded_matchparen = 1
-let mapleader = " "
+let mapleader = ","
 
 let g:maximizer_set_default_mapping = 0
 
@@ -124,66 +124,67 @@ let $FZF_DEFAULT_OPTS='--reverse'
 " nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 
 " coc
-nmap <silent> <Leader>vd <Plug>(coc-definition)
-nmap <silent> <Leader>vt <Plug>(coc-type-definition)
-nmap <silent> <Leader>vi <Plug>(coc-implementation)
-nmap <silent> <Leader>vr <Plug>(coc-references)
+nmap <silent> <Leader>d <Plug>(coc-definition)
+nmap <silent> <Leader>t <Plug>(coc-type-definition)
+nmap <silent> <Leader>i <Plug>(coc-implementation)
+nmap <silent> <Leader>r <Plug>(coc-references)
 
-nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>gs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
+nnoremap <leader>hw :h <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>s /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
 " buffers
-nnoremap <leader>bb :Buffers<CR>
-nnoremap <leader>bd :bd!<CR>
-nnoremap <leader>bn :bn!<CR>
-nnoremap <leader>bp :bp!<CR>
+nnoremap <space>bb :Buffers<CR>
+nnoremap <space>bd :bd!<CR>
+nnoremap <space>bn :bn!<CR>
+nnoremap <space>bp :bp!<CR>
 " split window
-nnoremap <leader>sl :vsplit<CR>:wincmd l<CR>
-nnoremap <leader>sj :split<CR>:wincmd j<CR>
-nnoremap <Leader>sf :MaximizerToggle!<CR>
-nnoremap <Leader>stn :terminal <CR>:file terminal<CR>
-nnoremap <Leader>stl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
+nnoremap <space>sl :vsplit<CR>:wincmd l<CR>
+nnoremap <space>sj :split<CR>:wincmd j<CR>
+nnoremap <space>sf :MaximizerToggle!<CR>
+nnoremap <space>stn :terminal <CR>:file terminal<CR>
+nnoremap <space>stl :terminal<CR>:vsplit<CR>:bn<CR>:wincmd l<CR>
 " window movements
 nnoremap <c-h> :wincmd h<CR>
 nnoremap <c-j> :wincmd j<CR>
 nnoremap <c-k> :wincmd k<CR>
 nnoremap <c-l> :wincmd l<CR>
-nnoremap <leader>f :Telescope file_browser<CR>
+" nnoremap <leader>f :Telescope file_browser<CR>
+nnoremap <space>f :NERDTreeToggle<CR>
 " telescope
-nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
+nnoremap <space>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+nnoremap <space>pb :lua require('telescope.builtin').buffers()<CR>
+nnoremap <space>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <space>pf :lua require('telescope.builtin').find_files()<CR>
 
-nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <space>a :lua require("harpoon.mark").add_file()<CR>
 
 nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
-nnoremap <leader>j :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>k :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>l :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>ö :lua require("harpoon.ui").nav_file(4)<CR>
-nnoremap <leader>tj :lua require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <leader>tk :lua require("harpoon.term").gotoTerminal(2)<CR>
-nnoremap <leader>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
-nnoremap <leader>ce :lua require("harpoon.term").sendCommand(1, 2)<CR>
+nnoremap <space>j :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <space>k :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <space>l :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <space>ö :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <space>tj :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <space>tk :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <space>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
+nnoremap <space>ce :lua require("harpoon.term").sendCommand(1, 2)<CR>
 
-nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <space><CR> :so ~/.config/nvim/init.vim<CR>
 
-nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
+nnoremap <space>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 tnoremap <Esc> <C-\><C-n>
 
-nnoremap <leader>m :MarkdownPreview<CR>
+nnoremap <space>m :MarkdownPreview<CR>
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 nnoremap * *zz
 
-nnoremap <silent> <leader> :WhichKey '<space>'<CR>
+nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 set timeoutlen=500
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -263,7 +264,7 @@ endfunction
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-nnoremap <leader>vh :call <SID>show_documentation()<CR>
+nnoremap <leader>h :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -277,10 +278,10 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <leader>vrn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 
-xmap <leader>vf  <Plug>(coc-format-selected)
-nmap <leader>vf  <Plug>(coc-format-selected)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -290,10 +291,10 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-xmap <leader>va  <Plug>(coc-codeaction-selected)
-nmap <leader>va  <Plug>(coc-codeaction-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>vac  <Plug>(coc-codeaction)
+nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>vqf  <Plug>(coc-fix-current)
+nmap <leader>qf  <Plug>(coc-fix-current)
