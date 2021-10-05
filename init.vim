@@ -213,6 +213,7 @@ fun! RunFormat()
     let l:save = winsaveview()
     if &ft =~ 'vim'
         return
+    endif
     call CocAction('format')
     call winrestview(l:save)
 endfun
