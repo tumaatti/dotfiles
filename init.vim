@@ -209,9 +209,16 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
+fun! RunFormat()
+    let l:save = winsaveview()
+    call CocAction('format')
+    call winrestview(l:save)
+endfun
+
 augroup TUOMO
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
+    autocmd BufWritePre * :call RunFormat()
 augroup END
 
 lua require'colorizer'.setup()
@@ -280,8 +287,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <leader>rn <Plug>(coc-rename)
 
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
