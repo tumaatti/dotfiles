@@ -211,7 +211,7 @@ endfun
 
 fun! RunFormat()
     let l:save = winsaveview()
-    if &ft =~ 'vim\|markdown'
+    if &ft =~ 'vim'
         return
     call CocAction('format')
     call winrestview(l:save)
