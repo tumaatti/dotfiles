@@ -32,6 +32,8 @@ call plug#begin(stdpath('data') . '/plugged')
 " :CocInstall coc-clangd coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-python coc-tailwindcss
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'pantharshit00/vim-prisma'
+
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " neovim lsp plugins
 Plug 'mhinz/vim-startify'
@@ -77,8 +79,10 @@ Plug 'nvim-lua/telescope.nvim'
 Plug 'szw/vim-maximizer'
 
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'pacokwon/onedarkhc.vim'
+Plug 'folke/tokyonight.nvim'
 
 call plug#end()
 
