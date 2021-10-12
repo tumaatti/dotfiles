@@ -204,7 +204,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 com! W w
 com! Wq wq
 
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 autocmd BufNewFile,BufRead *.py set textwidth=80
 
 fun! TrimWhitespace()
@@ -218,6 +218,9 @@ fun! RunFormat()
     if &ft =~ 'vim'
         return
     endif
+    if &ft =~ 'yml'
+        return
+    endif
     call CocAction('format')
     call winrestview(l:save)
 endfun
@@ -225,7 +228,7 @@ endfun
 augroup TUOMO
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
-    autocmd BufWritePre * :call RunFormat()
+    autocmd BufWritePre typescript,python,json,markdown :call RunFormat()
 augroup END
 
 lua require'colorizer'.setup()
