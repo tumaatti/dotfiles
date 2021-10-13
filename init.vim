@@ -206,6 +206,7 @@ com! Wq wq
 
 " autocmd BufWritePost *.py call Flake8()
 autocmd BufNewFile,BufRead *.py set textwidth=80
+autocmd BufNewFile,BufRead *.md set textwidth=80
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
