@@ -35,18 +35,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pantharshit00/vim-prisma'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-" neovim lsp plugins
 Plug 'mhinz/vim-startify'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'tjdevries/nlua.nvim'
 Plug 'ThePrimeagen/harpoon'
-" Plug 'tjdevries/lsp_extensions.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
-" Plug 'jose-elias-alvarez/buftabline.nvim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -76,9 +68,9 @@ Plug 'nvie/vim-flake8'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
-Plug 'szw/vim-maximizer'
 
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'szw/vim-maximizer'
+" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'pacokwon/onedarkhc.vim'
