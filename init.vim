@@ -229,8 +229,9 @@ endfun
 augroup TUOMO
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
-    autocmd BufWritePre py :call RunFormat()
-    autocmd BufWritePre typescript :call RunFormat()
+    autocmd BufWritePre *.py :call RunFormat()
+    autocmd BufWritePre *.ts :call RunFormat()
+    autocmd BufWritePre *.tsx :call RunFormat()
 augroup END
 
 lua require'colorizer'.setup()
