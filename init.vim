@@ -166,7 +166,8 @@ nnoremap <space>ce :lua require("harpoon.term").sendCommand(1, 2)<CR>
 
 nnoremap <space><CR> :so ~/.config/nvim/init.vim<CR>
 
-nnoremap <space>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
+nnoremap <space>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>Vkkk=jjj<esc>
+
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
@@ -221,7 +222,6 @@ endfun
 augroup TUOMO
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
-    autocmd BufWritePre *.py :call RunFormat()
     autocmd BufWritePre *.ts :call RunFormat()
     autocmd BufWritePre *.tsx :call RunFormat()
 augroup END
