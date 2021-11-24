@@ -29,8 +29,9 @@ set signcolumn=yes
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" :CocInstall coc-clangd coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-python coc-tailwindcss
+" :CocInstall coc-clangd coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-python coc-tailwindcss coc-go
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
 
 Plug 'pantharshit00/vim-prisma'
 
