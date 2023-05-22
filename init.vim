@@ -19,7 +19,7 @@ set termguicolors
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 set expandtab
-set textwidth=100
+set textwidth=120
 set scrolloff=8
 set list
 set updatetime=500
@@ -33,6 +33,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 
+Plug 'chaoren/vim-wordmotion'
+
 Plug 'pantharshit00/vim-prisma'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -40,7 +42,8 @@ Plug 'mhinz/vim-startify'
 Plug 'ThePrimeagen/harpoon'
 
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -129,7 +132,7 @@ nmap <silent> <Leader>r <Plug>(coc-references)
 nnoremap <leader>hw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>s /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
 " buffers
-nnoremap <space>bb :Buffers<CR>
+noremap <space>bb :Buffers<CR>
 nnoremap <space>bd :bd!<CR>
 nnoremap <space>bn :bn!<CR>
 nnoremap <space>bp :bp!<CR>
@@ -145,7 +148,8 @@ nnoremap <c-j> :wincmd j<CR>
 nnoremap <c-k> :wincmd k<CR>
 nnoremap <c-l> :wincmd l<CR>
 " nnoremap <leader>f :Telescope file_browser<CR>
-nnoremap <space>f :NERDTreeToggle<CR>
+" nnoremap <space>f :NERDTreeToggle<CR>
+nnoremap <space>f :NvimTreeToggle<CR>
 " telescope
 nnoremap <space>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <space>pb :lua require('telescope.builtin').buffers()<CR>
@@ -195,6 +199,8 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " lua require'lspconfig'.tailwindcss.setup{}
 " " lua require'nvim_lsp'.sumneko_lua.setup{ on_attach=require'completion'.on_attach }
 " lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
+"
+lua require'nvim-tree'.setup()
 
 com! W w
 com! Wq wq
