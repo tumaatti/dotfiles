@@ -211,6 +211,9 @@ autocmd BufNewFile,BufRead *.md set textwidth=80
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
+    if &ft =~ 'vim'
+        keeppatterns %s/ / /e
+    endif
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
